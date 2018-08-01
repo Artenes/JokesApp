@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.artenesnogueira.pundisplay.PunDisplayActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,9 +41,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+    public String getPun() {
+        return "Before my father died he worked in a circus as a stilt walker. I used to look up to him.";
     }
 
+    public void tellJoke(View view) {
+        Intent intent = new Intent(this, PunDisplayActivity.class);
+        intent.putExtra(PunDisplayActivity.EXTRA_PUN, getPun());
+        startActivity(intent);
+    }
 
 }
