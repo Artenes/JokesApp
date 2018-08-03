@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -16,6 +17,7 @@ import java.lang.ref.WeakReference;
  */
 public class LoadPunTask extends AsyncTask<Void, Void, String> {
 
+    private static final String TAG = LoadPunTask.class.getSimpleName();
     private static MyApi mApiService = null;
     private WeakReference<MainActivity> mMainActivityReference;
 
@@ -50,7 +52,8 @@ public class LoadPunTask extends AsyncTask<Void, Void, String> {
         try {
             return mApiService.sayHi().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            Log.e(TAG, e.getMessage());
+            return "";
         }
     }
 
