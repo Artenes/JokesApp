@@ -12,6 +12,14 @@ git clone https://github.com/Artenes/JokesApp
 
 And import the project in Android Studio.
 
+Before running the app or the tests, run in the terminal
+
+````
+gradlew appengineRun
+````
+
+for this you must have installed the Google Cloud Endpoint Server in your machine.
+
 # Features
 
 - Uses Local Google Cloud Endpoint Server to retrieve the puns
