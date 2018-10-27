@@ -32,6 +32,10 @@ android {
         }
     }
 
+    buildTypes.each {
+        it.buildConfigField('boolean', 'JOKES_APP_USE_FAKE_SERVER', JokesApp_UseFakeServer)
+    }
+
     flavorDimensions "default"
 
     productFlavors {
@@ -48,6 +52,10 @@ android {
 
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
@@ -59,6 +67,7 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation project(":pundisplay")
+    implementation project(":Puns")
 
     //A scarecrow says, "This job isn't for everyone, but hay, it's in my jeans."
     freeImplementation 'com.google.android.gms:play-services-ads:11.8.0'
